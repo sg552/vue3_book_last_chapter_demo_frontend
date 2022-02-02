@@ -1,4 +1,4 @@
-import * as types from './mutation_types'
+import * as types from '@/vuex/mutation_types'
 
 export const addToCart = ({ commit }, product) => {
     console.info('添加购物车')

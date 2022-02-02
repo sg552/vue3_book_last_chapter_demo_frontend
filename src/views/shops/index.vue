@@ -23,49 +23,49 @@
     <NavBottomView :is_shops_index="is_shops_index"></NavBottomView>
   </div>
 </template>
- <script>
-    import HomeHeaderView from '../../components/HomeHeader.vue';
-    import HomeBannerView from '../../components/HomeBanner.vue';
-    import HomeNavView from '../../components/HomeNav.vue';
-    import HomeMainView from '../../components/HomeMain.vue';
-    import SpecialMarket from '../../components/SpecialMarket.vue';
-    import {bindEvent,scrollPic} from '../../libs/index.js'
-    import NavBottomView from '../../components/NavBottom.vue';
-    const axios = require('axios');
+<script>
+import HomeHeaderView from '../../components/HomeHeader.vue';
+import HomeBannerView from '../../components/HomeBanner.vue';
+import HomeNavView from '../../components/HomeNav.vue';
+import HomeMainView from '../../components/HomeMain.vue';
+import SpecialMarket from '../../components/SpecialMarket.vue';
+import {bindEvent,scrollPic} from '../../libs/index.js'
+import NavBottomView from '../../components/NavBottom.vue';
+const axios = require('axios');
 
-    export default{
-      data () {
-        return {
-          goods: [],
-          is_shops_index: true,
-        }
-      },
-       components:{
-        HomeHeaderView,
-        HomeBannerView,
-        HomeNavView,
-        HomeMainView,
-        SpecialMarket,
-        NavBottomView
-       },
-       mounted () {
-        //bindEvent();
-        scrollPic();
-        this.loadPage ();
-       },
-       computed:  {
-       },
-       methods: {
-         loadPage () {
-           axios.get(this.api + '/goods/get_goods').then((response)=>{
-             console.info(response.body)
-             this.goods= response.body.goods
-           },(error) => {
-             console.error(error)
-           });
-         },
-       }
+export default{
+  data () {
+    return {
+      goods: [],
+      is_shops_index: true,
     }
+  },
+  components:{
+    HomeHeaderView,
+    HomeBannerView,
+    HomeNavView,
+    HomeMainView,
+    SpecialMarket,
+    NavBottomView
+  },
+  mounted () {
+    console.info("=== hi, views/shops/index.vue ")
+    //bindEvent();
+    scrollPic();
+    this.loadPage ();
+  },
+  computed:  {
+  },
+  methods: {
+    loadPage () {
+      axios.get(this.api + '/goods/get_goods').then((response)=>{
+        this.goods= response.data.goods
+      },(error) => {
+        console.error(error)
+      });
+    },
+  }
+}
 </script>
 <style scoped>
 .background {

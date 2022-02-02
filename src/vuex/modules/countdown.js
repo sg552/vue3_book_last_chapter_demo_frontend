@@ -1,6 +1,6 @@
 import {
   START_COUNTDOWN
-} from '../mutation_types'
+} from '@/vuex/mutation_types'
 
 const count_number = 30
 

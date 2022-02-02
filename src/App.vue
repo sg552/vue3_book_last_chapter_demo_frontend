@@ -1,15 +1,14 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
 <script>
+/*
 import store from './vuex/store'
 import { SET_BASEINFO, GET_BASEINFO } from './vuex/mutation_types'
+import { useStore } from 'vuex'
+
 export default {
-  store,
-  name: 'app',
   data () {
     return {
       user_info: {
@@ -17,17 +16,20 @@ export default {
       }
     }
   },
+  store: useStore(),
   mounted () {
-    console.log('main.vue created')
+    console.log('== in main.vue , mounted()')
 
     // TODO 开发环境下使用，　生产环境下注释掉
-    store.dispatch(SET_BASEINFO, {open_id: 'opFELv6YkJkMaH-xFkokTWCs5AlQ'})
-    console.info(this.$route.name)
+    this.$store.dispatch(SET_BASEINFO, {open_id: 'opFELv6YkJkMaH-xFkokTWCs5AlQ'})
+
+    console.info("--- this.$route.name: ", this.$route.name, ", this.user_info.open_id: ", this.user_info.open_id)
+    console.info("--- this.$store.state.userInfo.open_id", this.$store.state.userInfo.open_id)
     if (this.user_info.open_id) {
-      store.dispatch(SET_BASEINFO, this.user_info)
+      this.$store.dispatch(SET_BASEINFO, this.user_info)
     } else {
-      store.dispatch(SET_BASEINFO)
-      if (store.state.userInfo.open_id === undefined) {
+      this.$store.dispatch(SET_BASEINFO)
+      if (this.$store.state.userInfo.open_id === undefined) {
         console.info('用户id和open_id不存在 === 跳转到授权等待页面')
         this.$router.push({name: 'wait_to_shouquan'})
       } else {
@@ -44,6 +46,7 @@ export default {
   components:{
   }
 }
+*/
 </script>
 
 <style lang="scss">

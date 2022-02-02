@@ -111,9 +111,9 @@ const axios = require('axios');
           scrollPic();   //轮播图
           axios.get(this.api + '/goods/goods_details?good_id=' + this.good_id).then((response)=>{
             console.info(this.good_id)
-            console.info(response.body)
-            this.good = response.body.good
-            this.good_images = response.body.good_images
+            console.info(response.data)
+            this.good = response.data.good
+            this.good_images = response.data.good_images
 
           },(error) => {
             console.error(error)

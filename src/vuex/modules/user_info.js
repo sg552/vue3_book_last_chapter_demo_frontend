@@ -8,7 +8,7 @@ import {
   GET_BORDERCOLOR,
   GET_ACTIVECOLOR,
   EXCHANGE_ROLE
-} from '../mutation_types'
+} from '@/vuex/mutation_types'
 
 const state = {
   id: undefined, //用户id

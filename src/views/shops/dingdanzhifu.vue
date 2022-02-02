@@ -153,9 +153,9 @@
           if (this.single_pay) {
               axios.get(this.api + '/goods/goods_details?good_id=' + this.good_id).then((response)=>{
                   console.info(this.good_id)
-                  console.info(response.body)
-                  this.good = response.body.good
-                  this.good_images = response.body.good_images
+                  console.info(response.data)
+                  this.good = response.data.good
+                  this.good_images = response.data.good_images
               },(error) => {
                   console.error(error)
               });
@@ -243,8 +243,8 @@
 									params
 									).then((response) => {
 										console.info("============点击了立即支付===")
-										console.info(response.body.order_number)
-										let order_number =  response.body.order_number
+										console.info(response.data.order_number)
+										let order_number =  response.data.order_number
 										this.purchase(order_number)
 									}, (error) => {
 										console.error(error)

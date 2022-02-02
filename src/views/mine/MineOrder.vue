@@ -42,8 +42,8 @@
     mounted(){
       this.$nextTick(()=>{
         axios.get(this.api + this.get_orders_url).then((response)=>{
-          console.info(response.body)
-          this.orders = response.body.orders
+          console.info(response.data)
+          this.orders = response.data.orders
         },(error) => {
           console.error(error)
         });

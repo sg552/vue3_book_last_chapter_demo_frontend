@@ -1,6 +1,6 @@
 import {
   TOAST_SHOW_STATUS
-} from '../mutation_types'
+} from '@/vuex/mutation_types'
 
 // 是否存在tabbar
 const state = {
