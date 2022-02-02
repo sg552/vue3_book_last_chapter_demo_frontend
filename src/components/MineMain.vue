@@ -57,6 +57,7 @@
 <script>
 import { go } from '../libs/router'
 import { useStore } from 'vuex'
+const axios = require('axios');
 
 	export default{
 		data(){
@@ -67,7 +68,7 @@ import { useStore } from 'vuex'
 		},
     mounted(){
       this.$nextTick(()=>{
-        this.$http.get(this.$configs.api + 'customers/user_info?open_id=' + this.$store.state.userInfo.open_id).then((response)=>{
+        axios.get(this.$configs.api + 'customers/user_info?open_id=' + this.$store.state.userInfo.open_id).then((response)=>{
           console.info(response.body)
           this.customer = response.body.customer
         },(error) => {

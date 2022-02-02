@@ -93,6 +93,7 @@
 import { go } from '../../libs/router'
 import {scrollPic} from '../../libs/index.js'
 import { useStore } from 'vuex'
+const axios = require('axios');
 
    export default{
         data(){
@@ -108,8 +109,7 @@ import { useStore } from 'vuex'
         },
         mounted(){
           scrollPic();   //轮播图
-
-          this.$http.get(this.$configs.api + 'goods/goods_details?good_id=' + this.good_id).then((response)=>{
+          axios.get(this.$configs.api + 'goods/goods_details?good_id=' + this.good_id).then((response)=>{
             console.info(this.good_id)
             console.info(response.body)
             this.good = response.body.good

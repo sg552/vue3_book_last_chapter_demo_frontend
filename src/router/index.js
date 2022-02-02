@@ -18,7 +18,7 @@ import AddAddress from '@/views/address/add'
 const routes = [
     {
       path: '/',
-      name: 'Home',
+      name: 'Index',
       component: Index
     },
     {

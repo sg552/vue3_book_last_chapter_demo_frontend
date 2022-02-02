@@ -15,6 +15,7 @@
 </template>
 <script>
     import PromotionActivity from './PromotionActivity.vue';
+    const axios = require('axios');
 
     export default{
         data(){
@@ -29,7 +30,7 @@
         methods:{
             getData(){
                 let _this = this;
-                _this.$http.get('/home').then((res)=>{
+                axios.get('/home').then((res)=>{
                     _this.homeDatas.push(res.data[0]);
                     _this.homeDatas.push(res.data[1]);
                     _this.homeDatas.push(res.data[2]);

@@ -131,6 +131,7 @@
    import { go } from '../../libs/router'
    import { mapGetters } from 'vuex'
    import { useStore } from 'vuex'
+   const axios = require('axios');
    export default{
         data(){
             return {
@@ -150,7 +151,7 @@
         },
         mounted(){
           if (this.single_pay) {
-              this.$http.get(this.$configs.api + 'goods/goods_details?good_id=' + this.good_id).then((response)=>{
+              axios.get(this.$configs.api + 'goods/goods_details?good_id=' + this.good_id).then((response)=>{
                   console.info(this.good_id)
                   console.info(response.body)
                   this.good = response.body.good

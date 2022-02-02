@@ -31,6 +31,7 @@
     import SpecialMarket from '../../components/SpecialMarket.vue';
     import {bindEvent,scrollPic} from '../../libs/index.js'
     import NavBottomView from '../../components/NavBottom.vue';
+    const axios = require('axios');
 
     export default{
       data () {
@@ -56,7 +57,7 @@
        },
        methods: {
          loadPage () {
-           this.$http.get(this.$configs.api + 'goods/get_goods').then((response)=>{
+           axios.get(this.$configs.api + 'goods/get_goods').then((response)=>{
              console.info(response.body)
              this.goods= response.body.goods
            },(error) => {

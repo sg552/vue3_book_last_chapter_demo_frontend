@@ -69,6 +69,7 @@ span.title {
 
 <script>
 import { go } from '../../libs/router'
+const axios = require('axios');
 
 export default {
   data () {
@@ -79,7 +80,7 @@ export default {
     }
   },
   mounted () {
-    this.$http.get(this.$configs.api + 'goods/buy_success?order_id=' + this.order_id).then((response)=>{
+    axios.get(this.$configs.api + 'goods/buy_success?order_id=' + this.order_id).then((response)=>{
       console.info(this.order_id)
       console.info(response.body)
       this.order = response.body.order

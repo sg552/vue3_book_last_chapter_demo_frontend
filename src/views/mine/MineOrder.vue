@@ -14,6 +14,7 @@
 <script>
 	import MineOrderMain from '../../components/MineOrderMain.vue';
   import { useStore } from 'vuex'
+  const axios = require('axios');
 
 	export default{
     data(){
@@ -40,7 +41,7 @@
     },
     mounted(){
       this.$nextTick(()=>{
-        this.$http.get(this.$configs.api + this.get_orders_url).then((response)=>{
+        axios.get(this.$configs.api + this.get_orders_url).then((response)=>{
           console.info(response.body)
           this.orders = response.body.orders
         },(error) => {
