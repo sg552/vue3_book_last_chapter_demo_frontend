@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
+
 import Hello from '@/components/Hello'
 import Login from '@/views/login'
 import Index from '@/views/shops/index'
@@ -15,10 +15,7 @@ import MineOrder from '@/views/mine/MineOrder'
 import Address from '@/views/address/address'
 import AddAddress from '@/views/address/add'
 
-Vue.use(Router)
-
-export default new Router({
-  routes: [
+const routes = [
     {
       path: '/',
       name: 'Home',
@@ -93,4 +90,10 @@ export default new Router({
       component: require('../views/shoppingCar.vue')
     }
   ]
+
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes
 })
+
+export default router
