@@ -93,6 +93,7 @@
  import { mapGetters } from 'vuex'
  import { go } from '../libs/router'
  import {check,animatDelBox} from '../assets/js/cart.js'
+ import { useStore } from 'vuex'
 
 	export default{
 		data(){
@@ -149,6 +150,7 @@
         this.need_delete_item = item
       }
     },
+    store: useStore()
 	}
 </script>
 

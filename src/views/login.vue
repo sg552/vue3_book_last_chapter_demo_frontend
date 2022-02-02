@@ -28,6 +28,7 @@
 
 <script>
 import { go } from '../libs/router'
+import { useStore } from 'vuex'
 
 export default {
   data () {
@@ -45,7 +46,8 @@ export default {
     login () {
       go('/shops/index', this.$router)
     },
-  }
+  },
+  store: useStore()
 }
 
 </script>

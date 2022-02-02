@@ -9,27 +9,6 @@
       <div class="goods_detail" style="">
 
         <main class="detail_box">
-				<!--
-        <section class="banner_box">
-          <div style="margin-top: 45px">
-            <div class="extra_cost">
-              <span style="float: left; margin-left: 15px;"> 收货地址:</span>
-              <input class="mobile_user_info" v-model="mobile_user_address"  type="text" name="cost" placeholder="例如: 北京市朝阳区大望路西西里小区4栋2单元201" style=""></input>
-            </div>
-            <div class="extra_cost" style=" ">
-              <span style="float: left; margin-left: 31px;"> 收货人:</span>
-              <input class="mobile_user_info" name="name" v-model="mobile_user_name" v-validate="'required|required'" :class="{'input': true, 'is-danger': errors.has('name') }" type="text"  placeholder="例如: 张三" style=""></input>
-              <p v-show="errors.has('name')" class="help is-danger">收货人不能为空</p>
-            </div>
-            <div class="extra_cost" style=" ">
-              <span style="float: left; margin-left: 48px;"> 电话:</span>
-              <input class="mobile_user_info" v-model="mobile_user_phone" type="text" name="cost" placeholder="例如: 18588888888"
-              style=""></input>
-            </div>
-          </div>
-        </section>
-				-->
-
         <span class="divider"></span>
 
 				<form style="margin-top: 45px;">
@@ -105,7 +84,7 @@
           <div class="extra_cost" style=" ">
             <span style="float: left; margin-left: 15px;"> 卖家留言:</span>
             <input v-model="guest_remarks" id="extra_charge" type="text" name="cost" placeholder="选填: 对本次交易的说明" style="border: 0; background-color: white;
-            font-size: 15px; color: #48484b; outline: none; width: 60%;"></input>
+            font-size: 15px; color: #48484b; outline: none; width: 60%;"/>
           </div>
         </section>
 
@@ -151,6 +130,7 @@
 <script>
    import { go } from '../../libs/router'
    import { mapGetters } from 'vuex'
+   import { useStore } from 'vuex'
    export default{
         data(){
             return {
@@ -197,6 +177,7 @@
               checkoutStatus: 'checkoutStatus'
             })
         },
+        store: useStore(),
         methods:{
 						validateBeforeSubmit() {
 						  //拦截异步操作

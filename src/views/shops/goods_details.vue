@@ -91,8 +91,8 @@
 </template>
 <script>
 import { go } from '../../libs/router'
-//import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import {scrollPic} from '../../libs/index.js'
+import { useStore } from 'vuex'
 
    export default{
         data(){
@@ -102,30 +102,6 @@ import {scrollPic} from '../../libs/index.js'
                 good: "",
                 buy_count: 1,
                 good_id: this.$route.query.good_id,
-                /*
-								swiperOption: {
-									notNextTick: true,
-									autoplay: 1000,
-									direction : 'horizontal',
-									autoHeight: true,
-									pagination : '.swiper-pagination',
-									paginationClickable :true,
-									scrollbar:'.swiper-scrollbar',
-									observeParents:true,
-									// if you need use plugins in the swiper, you can config in here like this
-									// 如果自行设计了插件，那么插件的一些配置相关参数，也应该出现在这个对象中，如下debugger
-									debugger: true,
-									// swiper callbacks
-									// swiper的各种回调函数也可以出现在这个对象中，和swiper官方一样
-									onTransitionStart(swiper){
-										console.log(swiper)
-									},
-                  loop: true,
-                  autoplay: 2500,
-									// more Swiper configs and callbacks...
-									// ...
-								}
-                */
             }
         },
         watch:{
@@ -139,9 +115,6 @@ import {scrollPic} from '../../libs/index.js'
             this.good = response.body.good
             this.good_images = response.body.good_images
 
-            // 初始化轮播图
-            //this.swiper.slideTo(1, 1000, false)
-            //this.swiper.startAutoplay()
           },(error) => {
             console.error(error)
           });
@@ -178,7 +151,8 @@ import {scrollPic} from '../../libs/index.js'
         components: {
         },
 				computed: {
-				}
+				},
+        store: useStore()
     }
 </script>
 

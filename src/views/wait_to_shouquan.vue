@@ -5,11 +5,13 @@
 </template>
 
 <script>
+import { useStore } from 'vuex'
   export default {
     created () {
       window.location.href = this.$store.state.web_share + "/auth/wechat"
     },
     components: {
-    }
+    },
+    store: useStore()
   }
 </script>

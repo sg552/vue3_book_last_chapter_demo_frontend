@@ -23,35 +23,6 @@
 	                </div>
 	            </div>
 	        </div>
-          <!--
-          <div class="manage_account">
-          <span>
-          账户管理 >
-          </span>
-          </div>
-	        <div class="yguanzhu_box">
-	            <ul class="gunzhuf">
-	                <li class="item">
-	                    <a href="" class="item_link">
-	                        <span>0</span>
-	                        <span>已购买的商品</span>
-	                    </a>
-	                </li>
-	                <li class="item">
-	                    <a href="" class="item_link">
-	                        <span>0</span>
-	                        <span>关注的店铺</span>
-	                    </a>
-	                </li>
-	                <li class="item">
-	                    <a href="" class="item_link">
-	                        <span>8</span>
-	                        <span>浏览记录</span>
-	                    </a>
-	                </li>
-	            </ul>
-	        </div>
-          -->
 	    </section>
 	    <section class="my_order_box">
 	        <div class="order_top_box" @click="show_all_orders">
@@ -80,24 +51,12 @@
 	            </ul>
 	        </div>
 	    </section>
-      <!--
-	    <section class="my_order_box">
-	        <div class="order_top_box" @click="go_to_address_list">
-	            <div class="order_left">
-	                <img src="../assets/images/mypackage.png" alt="">
-	                <span>地址管理</span>
-	            </div>
-	            <div class="order_right">
-	                <span>></span>
-	            </div>
-	        </div>
-	    </section>
-      -->
 	</main>
 	</div>
 </template>
 <script>
 import { go } from '../libs/router'
+import { useStore } from 'vuex'
 
 	export default{
 		data(){
@@ -123,6 +82,7 @@ import { go } from '../libs/router'
       go_to_address_list () {
         go("/address", this.$router)
       }
-		}
+		},
+    store: useStore(),
 	}
 </script>

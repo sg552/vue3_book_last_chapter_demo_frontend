@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, useStore} from 'vuex'
 
 export default {
   computed: mapGetters({
@@ -24,6 +24,7 @@ export default {
   ]),
   created () {
     this.$store.dispatch('getAllProducts')
-  }
+  },
+  store: useStore()
 }
 </script>

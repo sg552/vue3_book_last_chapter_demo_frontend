@@ -13,6 +13,7 @@
 
 <script>
 	import MineOrderMain from '../../components/MineOrderMain.vue';
+  import { useStore } from 'vuex'
 
 	export default{
     data(){
@@ -47,6 +48,7 @@
         });
       })
     },
+    store: useStore(),
     methods:{
     }
 	}
