@@ -2,14 +2,15 @@
 require 'capistrano-rbenv'
 load 'deploy/assets'
 SSH_USER = 'root'
-ssh_options[:port] = 35888
+PORT = 6666
+ssh_options[:port] = PORT
 set :rake, "bundle exec rake"
 set :application, "si_lu_le_gou_h5"
 set :repository, "./dist"
 set :scm, :none
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 set :deploy_via, :copy
-server = "112.126.91.145"
+server = "shoph5.yoursite.com"
 
 role :web, server
 role :app, server                          # This may be the same as your `Web` server
