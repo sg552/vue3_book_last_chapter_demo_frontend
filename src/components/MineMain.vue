@@ -68,7 +68,7 @@ const axios = require('axios');
 		},
     mounted(){
       this.$nextTick(()=>{
-        axios.get(this.$configs.api + 'customers/user_info?open_id=' + this.$store.state.userInfo.open_id).then((response)=>{
+        axios.get(this.api + '/customers/user_info?open_id=' + this.$store.state.userInfo.open_id).then((response)=>{
           console.info(response.body)
           this.customer = response.body.customer
         },(error) => {

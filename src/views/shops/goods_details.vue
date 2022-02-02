@@ -109,7 +109,7 @@ const axios = require('axios');
         },
         mounted(){
           scrollPic();   //轮播图
-          axios.get(this.$configs.api + 'goods/goods_details?good_id=' + this.good_id).then((response)=>{
+          axios.get(this.api + '/goods/goods_details?good_id=' + this.good_id).then((response)=>{
             console.info(this.good_id)
             console.info(response.body)
             this.good = response.body.good

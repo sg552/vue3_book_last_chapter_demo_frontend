@@ -57,7 +57,7 @@
        },
        methods: {
          loadPage () {
-           axios.get(this.$configs.api + 'goods/get_goods').then((response)=>{
+           axios.get(this.api + '/goods/get_goods').then((response)=>{
              console.info(response.body)
              this.goods= response.body.goods
            },(error) => {

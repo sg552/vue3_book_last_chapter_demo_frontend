@@ -87,7 +87,7 @@ export default {
     }
   },
   mounted () {
-    axios.get(this.$configs.api + 'goods/buy_success?order_id=' + this.order_id).then((response)=>{
+    axios.get(this.api + '/goods/buy_success?order_id=' + this.order_id).then((response)=>{
       console.info(this.order_id)
       console.info(response.body)
       this.order = response.body.order

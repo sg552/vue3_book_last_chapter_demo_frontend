@@ -31,17 +31,17 @@
     computed: {
       get_orders_url () {
         if (this.order_status === "false") {
-          return ('orders/get_all_orders?order_status=false' + '&open_id=' + this.$store.state.userInfo.open_id)
+          return ('/orders/get_all_orders?order_status=false' + '&open_id=' + this.$store.state.userInfo.open_id)
         } else if (this.order_status === "true") {
-          return ('orders/get_all_orders?order_status=true'  + '&open_id=' + this.$store.state.userInfo.open_id)
+          return ('/orders/get_all_orders?order_status=true'  + '&open_id=' + this.$store.state.userInfo.open_id)
         } else {
-          return 'orders/get_all_orders?open_id=' + this.$store.state.userInfo.open_id
+          return '/orders/get_all_orders?open_id=' + this.$store.state.userInfo.open_id
         }
       }
     },
     mounted(){
       this.$nextTick(()=>{
-        axios.get(this.$configs.api + this.get_orders_url).then((response)=>{
+        axios.get(this.api + this.get_orders_url).then((response)=>{
           console.info(response.body)
           this.orders = response.body.orders
         },(error) => {

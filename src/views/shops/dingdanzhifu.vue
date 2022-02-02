@@ -151,7 +151,7 @@
         },
         mounted(){
           if (this.single_pay) {
-              axios.get(this.$configs.api + 'goods/goods_details?good_id=' + this.good_id).then((response)=>{
+              axios.get(this.api + '/goods/goods_details?good_id=' + this.good_id).then((response)=>{
                   console.info(this.good_id)
                   console.info(response.body)
                   this.good = response.body.good
@@ -239,7 +239,7 @@
 											open_id: this.open_id
 										}
 									}
-									this.$http.post(this.$configs.api + 'goods/buy',
+									this.$http.post(this.api + '/goods/buy',
 									params
 									).then((response) => {
 										console.info("============点击了立即支付===")
@@ -275,7 +275,7 @@
               } else {
                 total_cost = this.total
               }
-              this.$http.post(this.$configs.api + 'payments/user_pay',
+              this.$http.post(this.api + '/payments/user_pay',
               {
                 open_id: this.$store.state.userInfo.open_id,
                 total_cost: total_cost,
