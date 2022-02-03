@@ -120,6 +120,7 @@ const actions = {
       if (localStorage.getItem('BASEINFO')) {
         console.info('localStorage有数据')
         data = JSON.parse(localStorage.getItem('BASEINFO'))
+        console.info("-- in user_info.js, data:", data)
         commit(SET_BASEINFO, data)
       } else {
         console.info('localStorage没有数据')

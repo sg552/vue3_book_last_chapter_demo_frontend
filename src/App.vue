@@ -10,27 +10,32 @@ import { useStore } from 'vuex'
 export default {
   data () {
     return {
-      user_info: {
-        open_id: this.$route.query.open_id
-      }
+      open_id: undefined
     }
   },
   store: useStore(),
   mounted () {
-    console.log('== in App.vue , mounted()')
-
-    // TODO 开发环境下使用，　生产环境下注释掉
+    console.log('== in App.vue , mounted()-- 006, href: ', location.href)
+    
+    // this.open_id = this.$route.query.open_id
+    this.open_id = new URL(location.href).searchParams.get("open_id")
+    
+    // TODO 开发环境下使用，　生产环境下注释掉. 如果不考虑付款页面的话，这里的内容可以随意取值
 //    this.$store.dispatch(SET_BASEINFO, {open_id: 'opFELv6YkJkMaH-xFkokTWCs5AlQ'})
 
-    console.info("--- this.$route.name: ", this.$route.name, ", this.user_info.open_id: ", this.user_info.open_id)
-    console.info("--- this.$store.state.userInfo.open_id", this.$store.state.userInfo.open_id)
-    if (this.user_info.open_id) {
-      this.$store.dispatch(SET_BASEINFO, this.user_info)
+    console.info("--- this.open_id: ", this.open_id)
+    if (this.open_id) {
+      this.$store.dispatch(SET_BASEINFO, {open_id: this.open_id})
     } else {
       this.$store.dispatch(SET_BASEINFO)
       if (this.$store.state.userInfo.open_id === undefined) {
-        console.info('用户id和open_id不存在 === 跳转到授权等待页面, 这个页面需要在微信开发工具中调试。无法在普通浏览器中使用')
-        this.$router.push({name: 'wait_to_shouquan'})
+        console.info('---  用户id和open_id不存在 === 跳转到授权等待页面, 这个页面需要在微信开发工具中调试。无法在普通浏览器中使用')
+        let that = this
+        alert(22222)
+        setTimeout(function(){
+          that.$router.push({name: 'wait_to_auth'})
+        }, 5000)
+        
       } else {
         console.info('已经有了BASEINFO')
       }

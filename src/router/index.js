@@ -13,6 +13,8 @@ import Mine from '@/views/mine/Mine'
 import MineOrder from '@/views/mine/MineOrder'
 import Address from '@/views/address/address'
 import AddAddress from '@/views/address/add'
+import WaitToAuth from '@/views/wait_to_auth'
+import ShoppingCar from '@/views/shopping_car'
 
 const routes = [
     {
@@ -79,14 +81,14 @@ const routes = [
       name: 'PayFail',
       component: PayFail
     },
-    { path: '/wait_to_shouquan',
-      name: 'wait_to_shouquan',
-      component: require('../views/wait_to_shouquan.vue')
+    { path: '/wait_to_auth',
+      name: 'wait_to_auth',
+      component: WaitToAuth
     },
     {
       path: '/shopping_car',
       name: 'shopping_car',
-      component: require('../views/shoppingCar.vue')
+      component: ShoppingCar
     }
   ]
 
