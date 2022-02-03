@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import Hello from '@/components/Hello'
 import Login from '@/views/login'
 import Index from '@/views/shops/index'
 import Category from '@/views/shops/category'
@@ -18,7 +17,7 @@ import AddAddress from '@/views/address/add'
 const routes = [
     {
       path: '/',
-      name: 'Index',
+      name: 'Root',
       component: Index
     },
     {
