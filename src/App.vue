@@ -3,7 +3,6 @@
 </template>
 
 <script>
-/*
 import store from './vuex/store'
 import { SET_BASEINFO, GET_BASEINFO } from './vuex/mutation_types'
 import { useStore } from 'vuex'
@@ -18,7 +17,7 @@ export default {
   },
   store: useStore(),
   mounted () {
-    console.log('== in main.vue , mounted()')
+    console.log('== in App.vue , mounted()')
 
     // TODO 开发环境下使用，　生产环境下注释掉
     this.$store.dispatch(SET_BASEINFO, {open_id: 'opFELv6YkJkMaH-xFkokTWCs5AlQ'})
@@ -46,7 +45,6 @@ export default {
   components:{
   }
 }
-*/
 </script>
 
 <style lang="scss">
