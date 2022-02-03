@@ -6,6 +6,9 @@ const app = createApp(App)
 // 完整的接口地址形如： http://shopweb.sweetysoft.com/interface/goods/get_goods
 app.config.globalProperties.api = 'http://shopweb.sweetysoft.com/interface'
 
+import { currency } from '@/currency.js'
+app.config.globalProperties.currency = currency
+
 import store from './vuex/store'
 import router from './router'
 

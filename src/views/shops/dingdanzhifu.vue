@@ -15,24 +15,21 @@
 					<div class="column is-12">
 						<label class="label">收货人</label>
 						<p class="control has-icon has-icon-right">
-						<input name="name" v-model="mobile_user_name" v-validate="'required|required'" :class="{'input': true, 'is-danger': errors.has('name') }" type="text" placeholder="例如: 张三" autofocus="autofocus"/>
-						<span v-show="errors.has('name')" class="help is-danger">收货人不能为空</span>
+						<input name="name" v-model="mobile_user_name" :class="{'input': true }" type="text" placeholder="例如: 张三" autofocus="autofocus"/>
 						</p>
 					</div>
 
 					<div class="column is-12">
 						<label class="label">收货地址</label>
 						<p class="control has-icon has-icon-right">
-						<input name="url" v-model="mobile_user_address" v-validate="'required|required'" :class="{'input': true, 'is-danger': errors.has('url') }" type="text" placeholder="例如: 北京市朝阳区大望路西西里小区4栋2单元201"/>
-						<span v-show="errors.has('url')" class="help is-danger">收货地址不能为空</span>
+						<input name="url" v-model="mobile_user_address" :class="{'input': true }" type="text" placeholder="例如: 北京市朝阳区大望路西西里小区4栋2单元201"/>
 						</p>
 					</div>
 
 					<div class="column is-12">
 						<label class="label">收货电话</label>
 						<p class="control has-icon has-icon-right">
-						<input name="phone" v-model="mobile_user_phone" v-validate="'required|numeric'" :class="{'input': true, 'is-danger': errors.has('phone') }" type="text" placeholder="例如: 18888888888"/>
-						<span v-show="errors.has('phone')" class="help is-danger">电话号码不能为空</span>
+						<input name="phone" v-model="mobile_user_phone" :class="{'input': true }" type="text" placeholder="例如: 18888888888"/>
 						</p>
 					</div>
 				</form>
@@ -183,17 +180,23 @@
 						validateBeforeSubmit() {
 						  //拦截异步操作
 						  return new Promise((resolve, reject) => {
-								this.$validator.validateAll().then(result => {
-									console.info(result)
-									if (result) {
-										// eslint-disable-next-line
-										console.info("============表单验证成功===")
-										resolve(true);
-									} else {
-                    //alert('请填写完整的收货信息!');
-                    resolve(false);
-									}
-								});
+
+                /*
+                mobile_user_address: '',
+                mobile_user_name: '',
+                mobile_user_phone: '',
+                */
+                resolve(true)
+                  /*
+                if (result) {
+                  // eslint-disable-next-line
+                  console.info("============表单验证成功===")
+                  resolve(true);
+                } else {
+                  //alert('请填写完整的收货信息!');
+                  resolve(false);
+                }
+                */
 							})
 						},
             plus () {
@@ -239,7 +242,7 @@
 											open_id: this.open_id
 										}
 									}
-									this.$http.post(this.api + '/goods/buy',
+									axios.post(this.api + '/goods/buy',
 									params
 									).then((response) => {
 										console.info("============点击了立即支付===")
@@ -275,7 +278,7 @@
               } else {
                 total_cost = this.total
               }
-              this.$http.post(this.api + '/payments/user_pay',
+              axios.post(this.api + '/payments/user_pay',
               {
                 open_id: this.$store.state.userInfo.open_id,
                 total_cost: total_cost,
