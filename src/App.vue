@@ -21,7 +21,7 @@ export default {
     this.open_id = new URL(location.href).searchParams.get("open_id")
     
     // TODO 开发环境下使用，　生产环境下注释掉. 如果不考虑付款页面的话，这里的内容可以随意取值
-//    this.$store.dispatch(SET_BASEINFO, {open_id: 'opFELv6YkJkMaH-xFkokTWCs5AlQ'})
+    this.$store.dispatch(SET_BASEINFO, {open_id: 'opFELvzDXNXOtnNOHlkub5yPbMik'})
 
     console.info("--- this.open_id: ", this.open_id)
     if (this.open_id) {
@@ -31,10 +31,7 @@ export default {
       if (this.$store.state.userInfo.open_id === undefined) {
         console.info('---  用户id和open_id不存在 === 跳转到授权等待页面, 这个页面需要在微信开发工具中调试。无法在普通浏览器中使用')
         let that = this
-        alert(22222)
-        setTimeout(function(){
-          that.$router.push({name: 'wait_to_auth'})
-        }, 5000)
+        that.$router.push({name: 'wait_to_auth'})
         
       } else {
         console.info('已经有了BASEINFO')

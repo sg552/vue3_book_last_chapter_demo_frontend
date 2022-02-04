@@ -99,22 +99,6 @@
 		data(){
 			return{
         need_delete_item: {},
-				cartDatas:[
-        {
-          shop_name: "新疆沃尔玛",
-          product_img_url: "http://files.sweetysoft.com/image/silulegou/GVaBKvjIGEyDGcmk.jpeg",
-          product_name: "新疆哈密瓜",
-          description: "新疆克拉玛依哈密瓜,香甜可口新疆克拉玛依哈密瓜,香甜可口",
-          product_uprice: 12.5,
-        },
-        {
-          shop_name: "新疆沃尔玛",
-          product_img_url: "http://files.sweetysoft.com/image/silulegou/GVaBKvjIGEyDGcmk.jpeg",
-          product_name: "新疆哈密瓜",
-          description: "新疆克拉玛依哈密瓜,香甜可口",
-          product_uprice: 12.5,
-        },
-        ],
 			}
 		},
     mounted(){
@@ -134,7 +118,6 @@
     },
     methods: {
       checkout (products) {
-        //this.$store.dispatch('checkout', products)
         go("/shops/dingdanzhifu", this.$router)
       },
       add (id) {

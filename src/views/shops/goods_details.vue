@@ -121,17 +121,19 @@ const axios = require('axios');
         },
         methods:{
           addToCart () {
-            console.info('加入购物车')
-            alert("商品已经加入到了购物车")
-            let goods = {
-              id: this.good_id,
+            let good = {
+              id: parseInt(this.good_id),
               title: this.good.name,
               quantity: this.buy_count,
               price: this.good.price,
               image: this.good_images[0]
             }
-            this.$store.dispatch('addToCart', goods)
+            console.info("--- in cart2.vue, good:", good)
+            this.$store.dispatch('addToCart', good)
+            alert("商品已经加入到了购物车")
+
           },
+
           toCart () {
             go("/cart2", this.$router)
           },

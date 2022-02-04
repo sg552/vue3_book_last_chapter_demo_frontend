@@ -26,10 +26,8 @@ const mutations = {
     state.all = products
   },
 
-  [types.ADD_TO_CART] (state, { id }) {
-    console.info('阻止 调用products的 add_to_cart mutation')
-    state.all.find(p => p.id === id).inventory--
-    return
+  [types.ADD_TO_CART] (state, product) {
+    state.all.push(product)
   }
 }
 

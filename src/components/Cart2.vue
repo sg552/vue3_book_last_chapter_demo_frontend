@@ -2,7 +2,7 @@
   <div class="background">
     <div id="my_cart">
       <CartHeaderView></CartHeaderView>
-      <CartMainView></CartMainView>
+      <CartMainView :products="products"></CartMainView>
       <NavBottomView :is_cart="is_cart"></NavBottomView>
     </div>
   </div>
@@ -16,11 +16,6 @@
 </style>
 
 <script>
-/*
-export default {
-}
-*/
-
  import CartHeaderView from './CartHeader.vue';
  import CartMainView from './CartMain.vue';
  import CartFooterView from './CartFooter.vue';
@@ -29,7 +24,8 @@ export default {
  export default{
    data () {
      return {
-       is_cart: true
+       is_cart: true,
+       products: []
      }
    },
    mounted(){
