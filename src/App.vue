@@ -21,7 +21,7 @@ export default {
     this.open_id = new URL(location.href).searchParams.get("open_id")
     
     // TODO 开发环境下使用，　生产环境下注释掉. 如果不考虑付款页面的话，这里的内容可以随意取值
-    this.$store.dispatch(SET_BASEINFO, {open_id: 'opFELvzDXNXOtnNOHlkub5yPbMik'})
+    // this.$store.dispatch(SET_BASEINFO, {open_id: 'opFELvzDXNXOtnNOHlkub5yPbMik'})
 
     console.info("--- this.open_id: ", this.open_id)
     if (this.open_id) {
